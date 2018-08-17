@@ -10,4 +10,5 @@ public class User {
 
     public static int puntajej;
     public static int tiempoJuego;
+    public static int tipo;
 }

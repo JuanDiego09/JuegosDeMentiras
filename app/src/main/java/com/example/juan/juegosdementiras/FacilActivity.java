@@ -1,7 +1,9 @@
 package com.example.juan.juegosdementiras;
 
 import android.app.Dialog;
+import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.CountDownTimer;
@@ -16,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.juan.juegosdementiras.entidades.User;
+import com.example.juan.juegosdementiras.utilidades.Conexion;
+import com.example.juan.juegosdementiras.utilidades.Utilidades;
 
 import java.util.Random;
 
@@ -31,6 +35,8 @@ public class FacilActivity extends AppCompatActivity {
     int cantidadParejas = 1;
     CountDownTimer timer;
     Chronometer chronometer;
+    Conexion conn;
+    SQLiteDatabase bd;
 
 
     @Override
@@ -38,8 +44,10 @@ public class FacilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_facil);
 
+
+        conn = new Conexion(this, "puntaje", null, 1);
         defecto = getResources().getDrawable(R.mipmap.pregunta);
-        chronometer=findViewById(R.id.chronometer);
+        chronometer = findViewById(R.id.chronometer);
         btn1 = findViewById(R.id.btn1f);
         btn2 = findViewById(R.id.btn2f);
         btn3 = findViewById(R.id.btn3f);
@@ -285,11 +293,11 @@ public class FacilActivity extends AppCompatActivity {
 
     private void termina() {
         chronometer.stop();
-        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle("FINALIZA");
-        String mensaje="";
-        builder.setMessage("Tiempo de juego "+chronometer.getContentDescription());
+        String mensaje = "";
+        builder.setMessage("Tiempo de juego " + chronometer.getContentDescription());
         builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -302,8 +310,32 @@ public class FacilActivity extends AppCompatActivity {
                 finish();
             }
         });
-        Dialog dialog=builder.create();
+        Dialog dialog = builder.create();
         dialog.show();
+
+        registrar();
+    }
+
+    private void registrar() {
+        bd = conn.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(Utilidades.NOMBRE_USER, User.player1);
+        values.put(Utilidades.PUNTAJE, User.puntaje1);
+        values.put(Utilidades.NIVEL, "Facil");
+        values.put(Utilidades.TIEMPO, (String) chronometer.getContentDescription());
+        values.put(Utilidades.TIPO, User.tipo);
+
+        bd.insert(Utilidades.TABLA_PUNTAJE, Utilidades.PUNTAJE, values);
+
+        values.put(Utilidades.NOMBRE_USER, User.player2);
+        values.put(Utilidades.PUNTAJE, User.puntaje2);
+        values.put(Utilidades.NIVEL, "Facil");
+        values.put(Utilidades.TIEMPO, (String) chronometer.getContentDescription());
+        values.put(Utilidades.TIPO, User.tipo);
+
+        bd.insert(Utilidades.TABLA_PUNTAJE, Utilidades.PUNTAJE, values);
     }
 
     private void generarParejas() {
