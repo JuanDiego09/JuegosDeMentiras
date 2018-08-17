@@ -26,14 +26,14 @@ import java.util.Random;
 public class FacilActivity extends AppCompatActivity {
 
     ImageButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8;
-    TextView player1, player2, puntaje2, puntaje1;
+    TextView player1, player2, puntaje2, puntaje1,tiempoTo;
     ImageView imagenActuan, imagenAnterior;
     Drawable parejas[] = new Drawable[8], defecto;
     int onclick;
     int asignados = 0, asignados1, asignados2, asignados3, asignados4;
     int n = 0, num, puntajeG1, puntajeG2;
     int cantidadParejas = 1;
-    CountDownTimer timer;
+    CountDownTimer timer,total;
     Chronometer chronometer;
     Conexion conn;
     SQLiteDatabase bd;
@@ -60,6 +60,7 @@ public class FacilActivity extends AppCompatActivity {
         player2 = findViewById(R.id.txtplayer2);
         puntaje1 = findViewById(R.id.txtpuntaje1);
         puntaje2 = findViewById(R.id.txtpuntaje2);
+        tiempoTo=findViewById(R.id.tiempoTo);
         player1.setText("" + User.player1);
         player2.setText("" + User.player2);
         chronometer.start();
@@ -67,6 +68,11 @@ public class FacilActivity extends AppCompatActivity {
         numeroJugador();
         generarParejas();
         colores();
+        if (User.tipo==2){
+            chronometer.setVisibility(View.INVISIBLE);
+            tiempoTo.setVisibility(View.VISIBLE);
+            tiempoTotal();
+        }
 
 
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -231,6 +237,23 @@ public class FacilActivity extends AppCompatActivity {
         });
     }
 
+    private void tiempoTotal() {
+        int time=User.tiempoJuego*1000;
+        total=new CountDownTimer(time,1000) {
+            @Override
+            public void onTick(long l) {
+                int segundo=(int) l/1000;
+                tiempoTo.setText("Tiempo "+Integer.toString(segundo));
+            }
+
+            @Override
+            public void onFinish() {
+                termina();
+            }
+        };
+        total.start();
+    }
+
     private void colores() {
         if (User.puntajej == 1) {
             player1.setTextColor(Color.parseColor("#000000"));
@@ -323,7 +346,7 @@ public class FacilActivity extends AppCompatActivity {
 
         values.put(Utilidades.NOMBRE_USER, User.player1);
         values.put(Utilidades.PUNTAJE, User.puntaje1);
-        values.put(Utilidades.NIVEL, "facil");
+        values.put(Utilidades.NIVEL, 1);
         values.put(Utilidades.TIEMPO, (String) chronometer.getContentDescription());
         values.put(Utilidades.TIPO, User.tipo);
 
@@ -331,11 +354,14 @@ public class FacilActivity extends AppCompatActivity {
 
         values.put(Utilidades.NOMBRE_USER, User.player2);
         values.put(Utilidades.PUNTAJE, User.puntaje2);
-        values.put(Utilidades.NIVEL, "facil");
+        values.put(Utilidades.NIVEL, 1);
         values.put(Utilidades.TIEMPO, (String) chronometer.getContentDescription());
         values.put(Utilidades.TIPO, User.tipo);
 
         bd.insert(Utilidades.TABLA_PUNTAJE, Utilidades.PUNTAJE, values);
+
+        User.puntaje1 = 0;
+        User.puntaje2 = 0;
     }
 
     private void generarParejas() {

@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.juan.juegosdementiras.entidades.User;
+
 public class Ajustes extends AppCompatActivity {
 
     EditText campoTiempo;
@@ -18,11 +20,18 @@ public class Ajustes extends AppCompatActivity {
         setContentView(R.layout.activity_ajustes);
 
         campoTiempo = findViewById(R.id.campoTiempoAjuste);
-        //btnCapturaTiempo = findViewById(R.id.btnGuardarTiempoAjuste);
+
 
     }
 
     public void onClick(View view) {
-        Toast.makeText(getApplicationContext(),campoTiempo.getText(),Toast.LENGTH_SHORT).show();
+        User.tipo = 2;
+        User.tiempoJuego = Integer.parseInt(campoTiempo.getText().toString());
+        finish();
+    }
+
+    public void onClick2(View view) {
+        User.tipo = 2;
+        finish();
     }
 }

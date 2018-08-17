@@ -4,12 +4,13 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icono"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Splash"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +21,8 @@
         <activity android:name=".MedioActivity" />
         <activity android:name=".DificilActivity" />
         <activity android:name=".ListaPuntajes" />
-        <activity android:name=".Ajustes"></activity>
+        <activity android:name=".Ajustes" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

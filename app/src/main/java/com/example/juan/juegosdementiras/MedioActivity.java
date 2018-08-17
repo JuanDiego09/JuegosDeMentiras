@@ -26,14 +26,14 @@ public class MedioActivity extends AppCompatActivity {
 
 
     ImageButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12;
-    TextView player1, player2, puntaje2, puntaje1;
+    TextView player1, player2, puntaje2, puntaje1,tiempoTo;
     ImageView imagenActuan, imagenAnterior;
     Drawable parejas[] = new Drawable[12], defecto;
     int onclick;
     int asignados = 0, asignados1, asignados2, asignados3, asignados4, asignados5, asignados6;
     int n = 0, num, puntajeG1, puntajeG2;
     int cantidadParejas = 1;
-    CountDownTimer timer;
+    CountDownTimer timer, total;
     Chronometer chronometer;
     Conexion conn;
     SQLiteDatabase bd;
@@ -62,6 +62,7 @@ public class MedioActivity extends AppCompatActivity {
         player2 = findViewById(R.id.txtplayer2);
         puntaje1 = findViewById(R.id.txtpuntaje1);
         puntaje2 = findViewById(R.id.txtpuntaje2);
+        tiempoTo=findViewById(R.id.tiempoTo);
         player1.setText("" + User.player1);
         player2.setText("" + User.player2);
         chronometer.start();
@@ -69,6 +70,11 @@ public class MedioActivity extends AppCompatActivity {
         numeroJugador();
         generarParejas();
         colores();
+        if (User.tipo == 2) {
+            chronometer.setVisibility(View.INVISIBLE);
+            tiempoTo.setVisibility(View.VISIBLE);
+            tiempoTotal();
+        }
 
 
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -375,6 +381,7 @@ public class MedioActivity extends AppCompatActivity {
         };
         timer.start();
     }
+
     private void termina() {
         chronometer.stop();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -407,7 +414,7 @@ public class MedioActivity extends AppCompatActivity {
 
         values.put(Utilidades.NOMBRE_USER, User.player1);
         values.put(Utilidades.PUNTAJE, User.puntaje1);
-        values.put(Utilidades.NIVEL, "medio");
+        values.put(Utilidades.NIVEL, 2);
         values.put(Utilidades.TIEMPO, (String) chronometer.getContentDescription());
         values.put(Utilidades.TIPO, User.tipo);
 
@@ -415,13 +422,32 @@ public class MedioActivity extends AppCompatActivity {
 
         values.put(Utilidades.NOMBRE_USER, User.player2);
         values.put(Utilidades.PUNTAJE, User.puntaje2);
-        values.put(Utilidades.NIVEL, "medio");
+        values.put(Utilidades.NIVEL, 2);
         values.put(Utilidades.TIEMPO, (String) chronometer.getContentDescription());
         values.put(Utilidades.TIPO, User.tipo);
 
         bd.insert(Utilidades.TABLA_PUNTAJE, Utilidades.PUNTAJE, values);
+
+        User.puntaje1 = 0;
+        User.puntaje2 = 0;
     }
 
+    private void tiempoTotal() {
+        int time = User.tiempoJuego * 1000;
+        total = new CountDownTimer(time, 1000) {
+            @Override
+            public void onTick(long l) {
+                int segundo = (int) l / 1000;
+                tiempoTo.setText("Tiempo " + Integer.toString(segundo));
+            }
+
+            @Override
+            public void onFinish() {
+                termina();
+            }
+        };
+        total.start();
+    }
 
     private void generarParejas() {
         while (asignados < 12) {
@@ -483,7 +509,7 @@ public class MedioActivity extends AppCompatActivity {
                     }
                     break;
                 case 6:
-                    while (asignados6< 2) {
+                    while (asignados6 < 2) {
                         int posicion = new Random().nextInt(12);
                         while (parejas[posicion] != null) {
                             posicion = new Random().nextInt(12);

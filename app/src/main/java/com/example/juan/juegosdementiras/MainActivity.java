@@ -51,13 +51,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        switch (view.getId()){
+        Intent miIntent=null;
+        switch (view.getId()) {
             case R.id.jugar:
                 ventanaDialogoNivel();
                 break;
             case R.id.lista:
+                miIntent = new Intent(MainActivity.this, ListaPuntajes.class);
+                startActivity(miIntent);
                 break;
             case R.id.ajuste:
+                miIntent = new Intent(MainActivity.this, Ajustes.class);
+                startActivity(miIntent);
                 break;
         }
     }

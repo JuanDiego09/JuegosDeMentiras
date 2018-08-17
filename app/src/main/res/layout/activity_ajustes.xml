@@ -29,4 +29,16 @@
         android:layout_alignParentStart="true"
         android:text="EMPEZAR" />
 
+    <Button
+        android:id="@+id/btnJuegoDefecto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="68dp"
+        android:background="@color/colorPrimaryDark"
+        android:onClick="onClick2"
+        android:text="JUEGO POR DEFECTO"
+        android:textColor="#fff" />
+
 </RelativeLayout>
