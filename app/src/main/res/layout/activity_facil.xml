@@ -50,51 +50,52 @@
 
         <ImageButton
             android:id="@+id/btn1f"
-            android:src="@drawable/pregunta"
             android:layout_width="89dp"
-            android:layout_height="95dp" />
+            android:layout_height="95dp"
+            android:src="@mipmap/pregunta" />
 
         <ImageButton
-            android:src="@drawable/pregunta"
             android:id="@+id/btn2f"
             android:layout_width="89dp"
-            android:layout_height="95dp" />
+            android:layout_height="95dp"
+            android:src="@mipmap/pregunta" />
 
         <ImageButton
-            android:src="@drawable/pregunta"
             android:id="@+id/btn3f"
             android:layout_width="89dp"
-            android:layout_height="95dp" />
+            android:layout_height="95dp"
+            android:src="@mipmap/pregunta" />
 
         <ImageButton
-            android:src="@drawable/pregunta"
             android:id="@+id/btn4f"
             android:layout_width="89dp"
-            android:layout_height="95dp" />
+            android:layout_height="95dp"
+            android:src="@mipmap/pregunta" />
 
         <ImageButton
-            android:src="@drawable/pregunta"
             android:id="@+id/btn5f"
             android:layout_width="89dp"
-            android:layout_height="95dp" />
+            android:layout_height="95dp"
+            android:src="@mipmap/pregunta" />
 
         <ImageButton
-            android:src="@drawable/pregunta"
             android:id="@+id/btn6f"
             android:layout_width="89dp"
-            android:layout_height="95dp" />
+            android:layout_height="95dp"
+            android:src="@mipmap/pregunta" />
 
         <ImageButton
-            android:src="@drawable/pregunta"
             android:id="@+id/btn7f"
             android:layout_width="89dp"
-            android:layout_height="95dp" />
+            android:layout_height="95dp"
+            android:src="@mipmap/pregunta" />
 
         <ImageButton
-            android:src="@drawable/pregunta"
+            android:layout_margin="2dp"
             android:id="@+id/btn8f"
             android:layout_width="89dp"
-            android:layout_height="95dp" />
+            android:layout_height="95dp"
+            android:src="@mipmap/pregunta" />
 
     </GridLayout>
 

@@ -38,7 +38,7 @@ public class FacilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_facil);
 
-        defecto = getResources().getDrawable(R.drawable.pregunta);
+        defecto = getResources().getDrawable(R.mipmap.pregunta);
         chronometer=findViewById(R.id.chronometer);
         btn1 = findViewById(R.id.btn1f);
         btn2 = findViewById(R.id.btn2f);
@@ -284,6 +284,7 @@ public class FacilActivity extends AppCompatActivity {
     }
 
     private void termina() {
+        chronometer.stop();
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
 
         builder.setTitle("FINALIZA");
