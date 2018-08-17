@@ -323,7 +323,7 @@ public class FacilActivity extends AppCompatActivity {
 
         values.put(Utilidades.NOMBRE_USER, User.player1);
         values.put(Utilidades.PUNTAJE, User.puntaje1);
-        values.put(Utilidades.NIVEL, "Facil");
+        values.put(Utilidades.NIVEL, "facil");
         values.put(Utilidades.TIEMPO, (String) chronometer.getContentDescription());
         values.put(Utilidades.TIPO, User.tipo);
 
@@ -331,7 +331,7 @@ public class FacilActivity extends AppCompatActivity {
 
         values.put(Utilidades.NOMBRE_USER, User.player2);
         values.put(Utilidades.PUNTAJE, User.puntaje2);
-        values.put(Utilidades.NIVEL, "Facil");
+        values.put(Utilidades.NIVEL, "facil");
         values.put(Utilidades.TIEMPO, (String) chronometer.getContentDescription());
         values.put(Utilidades.TIPO, User.tipo);
 
