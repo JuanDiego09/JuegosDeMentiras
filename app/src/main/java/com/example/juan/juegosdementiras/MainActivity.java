@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         final EditText player1 = (EditText) layout.findViewById(R.id.player1);
 
-        final EditText player2 = (EditText) layout.findViewById(R.id.player1);
+        final EditText player2 = (EditText) layout.findViewById(R.id.player2);
 
         builder.setPositiveButton("Registrar", new DialogInterface.OnClickListener() {
             @Override

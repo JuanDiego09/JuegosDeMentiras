@@ -8,6 +8,6 @@ public class User {
     public static int puntaje1;
     public static int puntaje2;
 
-    public static int puntajes;
+    public static int puntajej;
     public static int tiempoJuego;
 }

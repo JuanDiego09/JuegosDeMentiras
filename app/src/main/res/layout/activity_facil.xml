@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".FacilActivity">
 
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="117dp"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,40 +50,48 @@
 
         <ImageButton
             android:id="@+id/btn1f"
+            android:src="@drawable/pregunta"
             android:layout_width="89dp"
             android:layout_height="95dp" />
 
         <ImageButton
+            android:src="@drawable/pregunta"
             android:id="@+id/btn2f"
             android:layout_width="89dp"
             android:layout_height="95dp" />
 
         <ImageButton
+            android:src="@drawable/pregunta"
             android:id="@+id/btn3f"
             android:layout_width="89dp"
             android:layout_height="95dp" />
 
         <ImageButton
+            android:src="@drawable/pregunta"
             android:id="@+id/btn4f"
             android:layout_width="89dp"
             android:layout_height="95dp" />
 
         <ImageButton
+            android:src="@drawable/pregunta"
             android:id="@+id/btn5f"
             android:layout_width="89dp"
             android:layout_height="95dp" />
 
         <ImageButton
+            android:src="@drawable/pregunta"
             android:id="@+id/btn6f"
             android:layout_width="89dp"
             android:layout_height="95dp" />
 
         <ImageButton
+            android:src="@drawable/pregunta"
             android:id="@+id/btn7f"
             android:layout_width="89dp"
             android:layout_height="95dp" />
 
         <ImageButton
+            android:src="@drawable/pregunta"
             android:id="@+id/btn8f"
             android:layout_width="89dp"
             android:layout_height="95dp" />
