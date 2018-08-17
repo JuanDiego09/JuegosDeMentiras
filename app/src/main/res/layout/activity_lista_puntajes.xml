@@ -9,21 +9,29 @@
     tools:context=".ListaPuntajes">
 
 
-    <Spinner
-        android:layout_marginTop="33dp"
-        android:id="@+id/spinnerNivelJuego"
+    <GridLayout
         android:layout_width="match_parent"
+        android:layout_marginTop="22dp"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-    </Spinner>
+        android:columnCount="1">
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:id="@+id/spinnerTipoJuego"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-    </Spinner>
+        <Spinner
+            android:layout_marginTop="33dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:id="@+id/spinnerNivelJuego"
+            android:layout_height="55dp">
+        </Spinner>
 
+        <Spinner
+            android:layout_height="55dp"
+            android:id="@+id/spinnerTipoJuego"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1">
+        </Spinner>
+
+
+    </GridLayout>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
@@ -32,8 +40,5 @@
         app:layoutManager="android.support.v7.widget.LinearLayoutManager"
         android:layout_height="wrap_content">
     </android.support.v7.widget.RecyclerView>
-
-
-
 
 </LinearLayout>

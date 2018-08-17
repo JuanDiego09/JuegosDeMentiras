@@ -18,7 +18,9 @@
         </activity>
         <activity android:name=".FacilActivity" />
         <activity android:name=".MedioActivity" />
-        <activity android:name=".DificilActivity"></activity>
+        <activity android:name=".DificilActivity" />
+        <activity android:name=".ListaPuntajes" />
+        <activity android:name=".Ajustes"></activity>
     </application>
 
 </manifest>

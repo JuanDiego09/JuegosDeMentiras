@@ -2,7 +2,7 @@ package com.example.juan.juegosdementiras.entidades;
 
 public class PuntajesVo {
 
-    private int  player1;
+    private String  player1;
     private String player2;
 
     private String nivel;
@@ -22,11 +22,11 @@ public class PuntajesVo {
 
     private int puntajes;
 
-    public int getPlayer1() {
+    public String getPlayer1() {
         return player1;
     }
 
-    public void setPlayer1(int player1) {
+    public void setPlayer1(String player1) {
         this.player1 = player1;
     }
 

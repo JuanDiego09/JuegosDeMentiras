@@ -29,9 +29,9 @@ public class PuntajesAdater extends RecyclerView.Adapter<PuntajesAdater.Puntajes
     @Override
     public void onBindViewHolder(PuntajesHolder holder, int position) {
 
-        holder.campoNombre.setText(listaPuntajes.get(position).getPlayer1());
-        holder.campoPuntaje.setText(listaPuntajes.get(position).getPuntaje1());
-        holder.campoMensaje.setText(listaPuntajes.get(position).getMensaje());
+        holder.campoNombre.setText("Jugador: "+listaPuntajes.get(position).getPlayer1());
+        holder.campoPuntaje.setText("Puntaje: "+listaPuntajes.get(position).getPuntaje1());
+        holder.campoMensaje.setText("Mensaje: "+listaPuntajes.get(position).getMensaje());
     }
 
     @Override
